@@ -19,7 +19,7 @@
     </div>
     <div id="left_div">
         <div id="login_div">
-            <?php include "view_login.php"; ?>
+            <?php include_once "view_login.php"; ?>
         </div>
     </div>
     <div id="list_div">
@@ -32,8 +32,8 @@
             </select>
             <input type='text' id = "serch_str" class="form-control" placeholder="검색 키워드">
             <input type='button' value="검색" onclick="select_all(1)" class="btn btn-sm btn-danger">
-            <div>
-                <?php //글쓰기 칸?>
+            <div id="write_div">
+                <?php include_once "view_write.php"?>
             </div>
         </div>
         <div id="list_main">
@@ -49,9 +49,11 @@
                 </thead>
                 <tbody>
                 <?php
+                $count = 1;
                 foreach($result as $lists){
-                    echo "<tr><td>$lists[0]</td><td>$lists[1]</td><td>$lists[2]</td>
+                    echo "<tr><td>$lists[0]</td><td id='list_{$count}'>$lists[1]</td><td>$lists[2]</td>
                               <td>$lists[3]</td><td>$lists[4]</td></tr>";
+                    $count++;
                 }
                 ?>
                 </tbody>
@@ -64,7 +66,3 @@
 </div>
 </body>
 </html>
-
-<?php
-
-?>

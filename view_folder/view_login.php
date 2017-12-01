@@ -41,6 +41,15 @@ else{
                     submit_button.setAttribute("onclick", "logout()");
                     login_div.appendChild(submit_button);
 
+                    //글쓰기 버튼 생성
+                    var create_write_button = document.createElement("input");
+                    create_write_button.setAttribute("type", "button");
+                    create_write_button.setAttribute("onclick", "location.href=\"write.html\"");
+                    create_write_button.setAttribute("class", "btn btn-sm btn-info");
+                    create_write_button.setAttribute("value", "글쓰기");
+                    document.getElementById("write_div").appendChild(create_write_button);
+
+
                 }else{
                     //ID나 pw가 틀렷을시,
                     login_div.removeChild(login_div.lastChild);
@@ -61,11 +70,16 @@ else{
 
     //로그아웃 버튼 클릭시,
     function logout() {
+        //로그인 div 자식 삭제
         var login_div = document.getElementById("login_div");
         while (login_div.children.length > 0) {
             login_div.removeChild(login_div.lastChild);
         }
-
+        //글쓰기 div 자식 삭제
+        var write_div = document.getElementById("write_div");
+        while (write_div.children.length > 0) {
+            write_div.removeChild(write_div.lastChild);
+        }
         var submit_button = document.createElement("input");
         submit_button.setAttribute("type", "id");
         submit_button.setAttribute("class", "form-control");
